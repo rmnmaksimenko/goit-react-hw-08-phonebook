@@ -3,7 +3,6 @@ import shortid from 'shortid';
 import { Component } from 'react';
 const usernameID = shortid.generate();
 const numberID = shortid.generate();
-// const filterID = shortid.generate();;
 
 class ContactForm extends Component {
   handleChange = e => {

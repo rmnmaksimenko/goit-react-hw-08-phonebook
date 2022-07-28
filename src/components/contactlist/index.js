@@ -1,21 +1,20 @@
-import { Component } from 'react';
 import Contact from './contact';
-import { ContactEl, ListEl } from './contactlist.styled';
 
-export default class ContactList extends Component {
-  friendList() {
-    return this.props.contacts.map(friend => {
+const ContactList = ({ contacts, onDelete }) => {
+  const friendList = () => {
+    return contacts.map(({ id, username, number }) => {
       return (
         <Contact
-          key={friend.id}
-          id={friend.id}
-          username={friend.username}
-          number={friend.number}
+          key={id}
+          id={id}
+          username={username}
+          number={number}
+          onDelete={() => onDelete(id)}
         />
       );
     });
-  }
-  render() {
-    return <ul>{this.friendList()}</ul>;
-  }
-}
+  };
+  return <ul>{friendList()}</ul>;
+};
+
+export default ContactList;
