@@ -12,13 +12,7 @@ export default class Filter extends Component {
       <label htmlFor={id}>
         Find Contacts by name
         <br />
-        <input
-          id={id}
-          type="text"
-          name="filter"
-          onChange={this.changeFilter}
-          autoComplete="off"
-        />
+        <input id={id} type="text" name="filter" onChange={this.changeFilter} autoComplete="off" />
       </label>
     );
   }

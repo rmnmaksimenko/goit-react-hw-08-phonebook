@@ -19,9 +19,7 @@ export class App extends Component {
 
   addContact = ({ username, number, id }) => {
     const { contacts } = this.state;
-    const userInContacts = contacts.findIndex(
-      contact => contact.username.toLowerCase() === username.toLowerCase()
-    );
+    const userInContacts = contacts.findIndex(contact => contact.username.toLowerCase() === username.toLowerCase());
     if (userInContacts !== -1) {
       alert(`${username} is already in contacts`);
       return;
@@ -51,9 +49,7 @@ export class App extends Component {
   filteredContacts() {
     const { contacts, filter } = this.state;
     const lowerCaseFilter = filter.toLowerCase();
-    return contacts.filter(contact =>
-      contact.username.toLowerCase().includes(lowerCaseFilter)
-    );
+    return contacts.filter(contact => contact.username.toLowerCase().includes(lowerCaseFilter));
   }
   render() {
     const filterID = shortid.generate();
@@ -64,16 +60,9 @@ export class App extends Component {
         <ContactForm onSubmit={this.addContact} />
         <div>
           <p>Contacts</p>
-          <Filter
-            id={filterID}
-            onChangeFilter={this.onChangeFilter}
-            value={filter}
-          />
+          <Filter id={filterID} onChangeFilter={this.onChangeFilter} value={filter} />
           {!this.state.contacts.length ? <p>You have no friends 😥</p> : ''}
-          <ContactList
-            contacts={this.filteredContacts()}
-            onDelete={this.deleteContact}
-          />
+          <ContactList contacts={this.filteredContacts()} onDelete={this.deleteContact} />
         </div>
       </Container>
     );
