@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class Filter extends Component {
   changeFilter = e => {
@@ -22,3 +23,9 @@ export default class Filter extends Component {
     );
   }
 }
+
+Filter.propTypes = {
+  id: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  onChangeFilter: PropTypes.func.isRequired,
+};

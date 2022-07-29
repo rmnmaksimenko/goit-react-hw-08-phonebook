@@ -26,12 +26,16 @@ export class App extends Component {
       alert(`${username} is already in contacts`);
       return;
     }
-    contacts.push({
-      id: id,
-      username: username,
-      number: number,
+    this.setState({
+      contacts: [
+        ...this.state.contacts,
+        {
+          id: id,
+          username: username,
+          number: number,
+        },
+      ],
     });
-    this.forceUpdate();
   };
 
   deleteContact = contactId => {
@@ -53,13 +57,18 @@ export class App extends Component {
   }
   render() {
     const filterID = shortid.generate();
+    const { filter } = this.state;
     return (
       <Container>
         <h1>Phonebook</h1>
         <ContactForm onSubmit={this.addContact} />
         <div>
           <p>Contacts</p>
-          <Filter id={filterID} onChangeFilter={this.onChangeFilter} />
+          <Filter
+            id={filterID}
+            onChangeFilter={this.onChangeFilter}
+            value={filter}
+          />
           {!this.state.contacts.length ? <p>You have no friends 😥</p> : ''}
           <ContactList
             contacts={this.filteredContacts()}

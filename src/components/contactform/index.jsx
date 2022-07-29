@@ -1,8 +1,6 @@
 import { Form } from './contactform.styled';
 import shortid from 'shortid';
 import { Component } from 'react';
-const usernameID = shortid.generate();
-const numberID = shortid.generate();
 
 class ContactForm extends Component {
   handleChange = e => {
@@ -22,11 +20,10 @@ class ContactForm extends Component {
   render() {
     return (
       <Form onSubmit={this.handleSubmit}>
-        <label htmlFor={usernameID}>
+        <label>
           Name
           <br />
           <input
-            id={usernameID}
             type="text"
             name="username"
             onChange={this.handleChange}
@@ -36,11 +33,10 @@ class ContactForm extends Component {
           />
         </label>
         <br />
-        <label htmlFor={numberID}>
+        <label>
           Number
           <br />
           <input
-            id={numberID}
             type="tel"
             name="number"
             onChange={this.handleChange}
