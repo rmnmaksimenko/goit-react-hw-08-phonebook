@@ -1,4 +1,4 @@
-import { Form } from './contactform.styled';
+import { Form, AddContactBtn } from './contactform.styled';
 import shortid from 'shortid';
 import { Component } from 'react';
 
@@ -46,7 +46,7 @@ class ContactForm extends Component {
           />
         </label>
         <br />
-        <button type="submit">Add contact</button>
+        <AddContactBtn type="submit">Add contact</AddContactBtn>
       </Form>
     );
   }

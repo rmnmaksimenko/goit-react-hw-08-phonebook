@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { ListEl, ContactEl } from './contactlist.styled';
+import { ListEl, DeleteBtn } from './contactlist.styled';
 const Contact = props => {
   const { id, username, number, onDelete } = props;
   return (
@@ -7,9 +7,9 @@ const Contact = props => {
       <span>
         {username}: {number}
       </span>
-      <ContactEl type="button" onClick={onDelete}>
-        Удалить
-      </ContactEl>
+      <DeleteBtn type="button" onClick={onDelete}>
+        Delete
+      </DeleteBtn>
     </ListEl>
   );
 };
