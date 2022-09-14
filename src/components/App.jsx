@@ -6,14 +6,11 @@ import ContactForm from './contactform';
 import ContactList from './contactlist';
 import Filter from './filter';
 
+const STORAGE = 'contactList';
+
 export class App extends Component {
   state = {
-    contacts: [
-      { id: 'id-1', username: 'Rosie Simpson', number: '459-12-56' },
-      { id: 'id-2', username: 'Hermione Kline', number: '443-89-12' },
-      { id: 'id-3', username: 'Eden Clements', number: '645-17-79' },
-      { id: 'id-4', username: 'Annie Copeland', number: '227-91-26' },
-    ],
+    contacts: [],
     filter: '',
   };
 
@@ -51,6 +48,20 @@ export class App extends Component {
     const lowerCaseFilter = filter.toLowerCase();
     return contacts.filter(contact => contact.username.toLowerCase().includes(lowerCaseFilter));
   }
+
+  componentDidMount() {
+    const storageContacts = localStorage.getItem(STORAGE);
+    if (storageContacts) {
+      this.setState({ contacts: JSON.parse(storageContacts) });
+    }
+  }
+
+  componentDidUpdate(_, prevState) {
+    if (prevState.contacts !== this.state.contacts) {
+      localStorage.setItem(STORAGE, JSON.stringify(this.state.contacts));
+    }
+  }
+
   render() {
     const filterID = shortid.generate();
     const { filter } = this.state;
