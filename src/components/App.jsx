@@ -13,7 +13,7 @@ export class App extends Component {
     contacts: [],
     filter: '',
   };
-
+  // test
   addContact = ({ username, number, id }) => {
     const { contacts } = this.state;
     const userInContacts = contacts.findIndex(contact => contact.username.toLowerCase() === username.toLowerCase());
