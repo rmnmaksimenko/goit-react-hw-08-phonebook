@@ -1,6 +1,7 @@
 import { Form, AddContactBtn } from './contactform.styled';
 import shortid from 'shortid';
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class ContactForm extends Component {
   handleChange = e => {
@@ -53,3 +54,7 @@ class ContactForm extends Component {
 }
 
 export default ContactForm;
+
+ContactForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};

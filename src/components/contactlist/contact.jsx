@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import { ListEl, DeleteBtn } from './contactlist.styled';
-const Contact = props => {
-  const { id, username, number, onDelete } = props;
+function Contact(props) {
+  const { username, number, onDelete } = props;
   return (
-    <ListEl key={id}>
+    <ListEl>
       <span>
         {username}: {number}
       </span>
@@ -12,11 +12,10 @@ const Contact = props => {
       </DeleteBtn>
     </ListEl>
   );
-};
+}
 
 export default Contact;
 Contact.propTypes = {
-  id: PropTypes.string,
   username: PropTypes.string,
   number: PropTypes.string,
   onDelete: PropTypes.func,
