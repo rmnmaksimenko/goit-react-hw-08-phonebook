@@ -5,7 +5,7 @@ function ContactList({ contacts, onDelete }) {
   return (
     <ul>
       {contacts.map(({ id, username, number }) => (
-        <Contact key={id} id={id} username={username} number={number} onDelete={() => onDelete(id)} />
+        <Contact key={id} username={username} number={number} onDelete={() => onDelete(id)} />
       ))}
     </ul>
   );
