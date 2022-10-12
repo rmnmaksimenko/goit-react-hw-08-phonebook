@@ -1,5 +1,4 @@
 import 'index.css';
-import shortid from 'shortid';
 import { Container } from './app.styled';
 import ContactForm from './contactform';
 import ContactList from './contactlist';
@@ -35,14 +34,13 @@ export function App() {
     return contacts.filter(contact => contact.username.toLowerCase().includes(lowerCaseFilter));
   }
 
-  const filterID = shortid.generate();
   return (
     <Container>
       <h1>Phonebook</h1>
       <ContactForm onSubmit={addContact} />
       <div>
         <p>Contacts</p>
-        <Filter id={filterID} onChangeFilter={onChangeFilter} value={filter} />
+        <Filter onChangeFilter={onChangeFilter} />
         {!contacts.length ? <p>You have no friends 😥</p> : ''}
         <ContactList contacts={filteredContacts()} onDelete={deleteContact} />
       </div>
