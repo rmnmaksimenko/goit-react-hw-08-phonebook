@@ -1,5 +1,4 @@
 import 'index.css';
-import { Component } from 'react';
 import shortid from 'shortid';
 import { Container } from './app.styled';
 import ContactForm from './contactform';
@@ -18,7 +17,6 @@ export function App() {
     const userInContacts = contacts.findIndex(contact => contact.username.toLowerCase() === username.toLowerCase());
     if (userInContacts !== -1) {
       alert(`${username} is already in contacts`);
-      console.log(123);
       return;
     }
     setContacts([...contacts, { username, number, id }]);
