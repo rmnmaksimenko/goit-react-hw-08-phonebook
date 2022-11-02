@@ -5,12 +5,16 @@ import ContactList from './contactlist';
 import Filter from './filter';
 import useLocalStorage from 'hooks/uselocalstorage';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 
-const STORAGE = 'contactList';
+export const STORAGE = 'contactList';
 
 export function App() {
   const [contacts, setContacts] = useLocalStorage(STORAGE, []);
-  const [filter, SetFilter] = useState('');
+  console.log(useSelector(state => state.contactList.value));
+  // const contacts = useSelector(state => state.contactList);
+  // console.log(contacts);
+  const filter = useSelector(state => state.filter.value);
 
   const addContact = ({ username, number, id }) => {
     const userInContacts = contacts.findIndex(contact => contact.username.toLowerCase() === username.toLowerCase());
@@ -25,10 +29,6 @@ export function App() {
     setContacts(contacts.filter(contact => contact.id !== contactId));
   };
 
-  const onChangeFilter = value => {
-    SetFilter(value);
-  };
-
   function filteredContacts() {
     const lowerCaseFilter = filter.toLowerCase();
     return contacts.filter(contact => contact.username.toLowerCase().includes(lowerCaseFilter));
@@ -40,7 +40,7 @@ export function App() {
       <ContactForm onSubmit={addContact} />
       <div>
         <p>Contacts</p>
-        <Filter onChangeFilter={onChangeFilter} />
+        <Filter />
         {!contacts.length ? <p>You have no friends 😥</p> : ''}
         <ContactList contacts={filteredContacts()} onDelete={deleteContact} />
       </div>
