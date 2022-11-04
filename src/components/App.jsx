@@ -1,23 +1,16 @@
 import 'index.css';
+import { useSelector } from 'react-redux';
 import { Container } from './app.styled';
 import ContactForm from './contactform';
 import ContactList from './contactlist';
 import Filter from './filter';
-import useLocalStorage from 'hooks/uselocalstorage';
-import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+// import useLocalStorage from 'hooks/uselocalstorage';
 
 export const STORAGE = 'contactList';
 
 export function App() {
-  const [contacts, setContacts] = useLocalStorage(STORAGE, []);
-
-  const filter = useSelector(state => state.filter.value);
-
-  function filteredContacts() {
-    const lowerCaseFilter = filter.toLowerCase();
-    return contacts.filter(contact => contact.username.toLowerCase().includes(lowerCaseFilter));
-  }
+  const contacts = useSelector(state => state.contactList.contacts);
+  const contactsLength = contacts ? contacts.length : 0;
 
   return (
     <Container>
@@ -26,7 +19,7 @@ export function App() {
       <div>
         <p>Contacts</p>
         <Filter />
-        {!contacts.length ? <p>You have no friends 😥</p> : ''}
+        {!contactsLength ? <p>You have no friends 😥</p> : ''}
         <ContactList />
       </div>
     </Container>

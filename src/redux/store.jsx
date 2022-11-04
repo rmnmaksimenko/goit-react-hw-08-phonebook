@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { persistStore, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist';
-import contactListSlice from './contactList';
+// import contactListSlice from './contactListSlice';
 import filterSlice from './filter';
-import { persistedContactListReducer } from './contactList';
+import { persistedContactListReducer } from './contactListSlice';
 
 export const store = configureStore({
   reducer: {

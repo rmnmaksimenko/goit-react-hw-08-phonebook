@@ -1,15 +1,13 @@
 import { Form, AddContactBtn } from './contactform.styled';
 import shortid from 'shortid';
-import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'redix/contactList';
+import { addContact } from 'redux/contactListSlice';
 
 function ContactForm() {
   const dispatch = useDispatch();
-  // const [contacts, setContacts] = useLocalStorage(STORAGE, []);
   const contactsName = useSelector(state => state.contactList.contacts);
-  console.log(contactsName);
+
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
@@ -22,9 +20,9 @@ function ContactForm() {
 
   const handleSubmit = e => {
     e.preventDefault();
+
     const id = shortid.generate();
     const newContact = { username: name, number, id };
-    // onSubmit(contact);
     const userInContacts = contactsName.findIndex(
       contact => contact.username.toLowerCase() === newContact.username.toLowerCase()
     );
@@ -34,9 +32,9 @@ function ContactForm() {
     }
 
     console.log(newContact);
-    // setContacts([...contacts, newContact]);
     dispatch(addContact(newContact));
-    e.currentTarget.reset();
+    setName('');
+    setNumber('');
   };
 
   return (
@@ -75,7 +73,3 @@ function ContactForm() {
 }
 
 export default ContactForm;
-
-ContactForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-};
