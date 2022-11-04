@@ -2,8 +2,14 @@ import { Form, AddContactBtn } from './contactform.styled';
 import shortid from 'shortid';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addContact } from 'redix/contactList';
 
-function ContactForm({ onSubmit }) {
+function ContactForm() {
+  const dispatch = useDispatch();
+  // const [contacts, setContacts] = useLocalStorage(STORAGE, []);
+  const contactsName = useSelector(state => state.contactList.contacts);
+  console.log(contactsName);
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
@@ -17,8 +23,19 @@ function ContactForm({ onSubmit }) {
   const handleSubmit = e => {
     e.preventDefault();
     const id = shortid.generate();
-    const contact = { username: name, number, id };
-    onSubmit(contact);
+    const newContact = { username: name, number, id };
+    // onSubmit(contact);
+    const userInContacts = contactsName.findIndex(
+      contact => contact.username.toLowerCase() === newContact.username.toLowerCase()
+    );
+    if (userInContacts !== -1) {
+      alert(`${newContact.username} is already in contacts`);
+      return;
+    }
+
+    console.log(newContact);
+    // setContacts([...contacts, newContact]);
+    dispatch(addContact(newContact));
     e.currentTarget.reset();
   };
 

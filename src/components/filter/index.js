@@ -6,8 +6,6 @@ export default function Filter() {
   const dispatch = useDispatch();
   const value = useSelector(state => state.filter.value);
   const changeFilter = e => {
-    // const value = e.currentTarget.value;
-    // onChangeFilter(value);
     dispatch(setFilter(e.target.value));
   };
   return (

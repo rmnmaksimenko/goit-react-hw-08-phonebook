@@ -1,7 +1,14 @@
 import Contact from './contact';
 import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteContact } from 'redix/contactList';
 
-function ContactList({ contacts, onDelete }) {
+function ContactList() {
+  const dispatch = useDispatch();
+
+  const contacts = useSelector(state => state.contactList.contacts);
+
+  const onDelete = id => dispatch(deleteContact(id));
   return (
     <ul>
       {contacts.map(({ id, username, number }) => (
