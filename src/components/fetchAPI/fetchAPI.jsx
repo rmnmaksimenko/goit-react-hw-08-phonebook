@@ -7,7 +7,7 @@ export async function addContact(contact) {
 }
 
 export async function deleteContact(id) {
-  return await axios.delete(`${BASE_URL}contacts`, id);
+  return await axios.delete(`${BASE_URL}contacts/${id}`);
 }
 
 export async function getContacts() {

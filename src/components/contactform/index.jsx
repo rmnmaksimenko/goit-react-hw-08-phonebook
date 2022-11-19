@@ -2,11 +2,12 @@ import { Form, AddContactBtn } from './contactform.styled';
 import shortid from 'shortid';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'redux/contactListSlice';
+import { addContacts } from 'redux/operations';
+import { selectContacts } from 'redux/selectContacts';
 
 function ContactForm() {
   const dispatch = useDispatch();
-  const contactsName = useSelector(state => state.contactList.contacts);
+  const contactsName = useSelector(selectContacts);
 
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
@@ -32,7 +33,7 @@ function ContactForm() {
     }
 
     console.log(newContact);
-    dispatch(addContact(newContact));
+    dispatch(addContacts(newContact));
     setName('');
     setNumber('');
   };

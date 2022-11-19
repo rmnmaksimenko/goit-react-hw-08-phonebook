@@ -1,25 +1,33 @@
 import 'index.css';
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchContacts } from 'redux/operations';
+import { selectContacts, selectIsLoading } from 'redux/selectContacts';
 import { Container } from './app.styled';
 import ContactForm from './contactform';
 import ContactList from './contactlist';
+import { ErrorCatch } from './errorCatch/errorCatch';
 import Filter from './filter';
-// import useLocalStorage from 'hooks/uselocalstorage';
-
 export const STORAGE = 'contactList';
 
 export function App() {
-  const contacts = useSelector(state => state.contactList.contacts);
+  const dispatch = useDispatch();
+  const contacts = useSelector(selectContacts);
+  const isLoading = useSelector(selectIsLoading);
+  const isError = ErrorCatch();
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
   const contactsLength = contacts ? contacts.length : 0;
-
+  console.log(isLoading);
   return (
     <Container>
       <h1>Phonebook</h1>
       <ContactForm />
       <div>
-        <p>Contacts</p>
         <Filter />
-        {!contactsLength ? <p>You have no friends 😥</p> : ''}
+        {isLoading ? <p>Loading tasks...</p> : isError ? <p>{isError}</p> : <p>Contacts</p>}
+        {!contactsLength ? !isLoading ? !isError ? <p>You have no friends 😥</p> : '' : '' : ''}
         <ContactList />
       </div>
     </Container>
