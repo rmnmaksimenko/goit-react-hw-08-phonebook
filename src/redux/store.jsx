@@ -9,5 +9,3 @@ export const store = configureStore({
   },
   middleware: getDefaultMiddleware => getDefaultMiddleware({}),
 });
-
-// export const selectContacts = state => state.contacts.contacts;
