@@ -7,8 +7,6 @@ export function ErrorCatch() {
     if (isError.message) {
       isError = isError.message;
     }
-  } catch (error) {
-    console.log(error);
-  }
+  } catch (error) {}
   return isError;
 }
