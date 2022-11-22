@@ -7,7 +7,7 @@ export const Appbar = () => {
       <Navigation>
         <NavList>
           <li>
-            <Link to={'/about'}>About</Link>
+            <Link to={'/'}>About</Link>
             <Link to={'/contacts'}>Contacts</Link>
           </li>
           <li>

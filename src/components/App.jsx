@@ -11,7 +11,7 @@ export function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index path="/about" element={<AboutPage />} />
+        <Route index element={<AboutPage />} end />
         <Route path="/contacts" element={<ContactsPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/registration" element={<RegistrationPage />} />
