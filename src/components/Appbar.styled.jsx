@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { NavLink } from 'react-router-dom';
 export const NavList = styled.ul`
   display: flex;
   justify-content: space-between;
@@ -12,4 +13,12 @@ export const NavList = styled.ul`
 export const Navigation = styled.nav`
   margin-bottom: 16px;
   border-bottom: 1px solid #dedede;
+`;
+
+export const Link = styled(NavLink)`
+  margin: 10px;
+  color: #fff;
+  &.active {
+    color: red;
+  }
 `;

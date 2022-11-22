@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { Navigation, NavList } from './Appbar.styled';
+import { Link, Navigation, NavList } from './Appbar.styled';
 
 export const Appbar = () => {
   return (
@@ -7,12 +7,12 @@ export const Appbar = () => {
       <Navigation>
         <NavList>
           <li>
-            <NavLink to={'/about'}>About</NavLink>
-            <NavLink to={'/contacts'}>Contacts</NavLink>
+            <Link to={'/about'}>About</Link>
+            <Link to={'/contacts'}>Contacts</Link>
           </li>
           <li>
-            <NavLink to={'/login'}>Login</NavLink>
-            <NavLink to={'/registration'}>Sign up</NavLink>
+            <Link to={'/login'}>Login</Link>
+            <Link to={'/registration'}>Sign up</Link>
           </li>
         </NavList>
       </Navigation>
