@@ -23,12 +23,12 @@ function ContactForm() {
     e.preventDefault();
 
     const id = shortid.generate();
-    const newContact = { username: name, number, id };
+    const newContact = { name: name, number, id };
     const userInContacts = contactsName.findIndex(
-      contact => contact.username.toLowerCase() === newContact.username.toLowerCase()
+      contact => contact.name.toLowerCase() === newContact.name.toLowerCase()
     );
     if (userInContacts !== -1) {
-      alert(`${newContact.username} is already in contacts`);
+      alert(`${newContact.name} is already in contacts`);
       return;
     }
 
@@ -45,7 +45,7 @@ function ContactForm() {
         <br />
         <input
           type="text"
-          name="username"
+          name="name"
           value={name}
           onChange={handleChangeName}
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"

@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { deleteContacts } from 'redux/operations';
 import { ListEl, DeleteBtn } from './contactlist.styled';
 function Contact(props) {
-  const { username, number, id } = props;
+  const { name, number, id } = props;
   const dispatch = useDispatch();
   // const onDelete = id => dispatch(deleteContact(id));
   const onDelete = id => {
@@ -14,7 +14,7 @@ function Contact(props) {
   return (
     <ListEl>
       <span>
-        {username}: {number}
+        {name}: {number}
       </span>
       <DeleteBtn
         type="button"
@@ -30,6 +30,6 @@ function Contact(props) {
 
 export default Contact;
 Contact.propTypes = {
-  username: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   number: PropTypes.string.isRequired,
 };

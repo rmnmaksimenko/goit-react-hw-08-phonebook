@@ -8,13 +8,13 @@ function ContactList() {
 
   const filteredContacts = () => {
     const lowerCaseFilter = filter.toLowerCase();
-    return contacts.filter(contact => contact.username.toLowerCase().includes(lowerCaseFilter));
+    return contacts.filter(contact => contact.name.toLowerCase().includes(lowerCaseFilter));
   };
 
   return (
     <ul>
-      {filteredContacts().map(({ id, username, number }) => (
-        <Contact key={id} id={id} username={username} number={number} />
+      {filteredContacts().map(({ id, name, number }) => (
+        <Contact key={id} id={id} name={name} number={number} />
       ))}
     </ul>
   );
