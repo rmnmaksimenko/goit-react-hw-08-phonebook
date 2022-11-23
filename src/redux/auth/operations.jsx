@@ -33,6 +33,7 @@ export const login = createAsyncThunk('auth/login', async (credentials, thunkAPI
 
 export const logout = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
+    // eslint-disable-next-line no-unused-vars
     const res = await axios.post('users/logout');
     clearAuthHeader();
   } catch (error) {
