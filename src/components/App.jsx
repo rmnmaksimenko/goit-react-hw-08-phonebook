@@ -17,13 +17,14 @@ export const STORAGE = 'contactList';
 export function App() {
   axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
   const { isRefreshing } = useAuth();
-  console.log('refresh:', isRefreshing);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
 
+  console.log('refresh:', isRefreshing);
   return isRefreshing ? (
     <p>Fetching user data...</p>
   ) : (
