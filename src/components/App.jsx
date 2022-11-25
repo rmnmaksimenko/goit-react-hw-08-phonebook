@@ -34,7 +34,7 @@ export function App() {
         <Route path="/contacts" element={<PrivateRoute component={ContactsPage} redirectTo="/login" />} />
         <Route path="/login" element={<RestrictedRoute component={LoginPage} redirectTo="/contacts" />} />
         <Route path="/registration" element={<RestrictedRoute component={RegistrationPage} redirectTo="/contacts" />} />
-        <Route path="*" element={<Navigate to={'/About'} />} />
+        <Route path="*" element={<Navigate to={'/'} />} />
       </Route>
     </Routes>
   );

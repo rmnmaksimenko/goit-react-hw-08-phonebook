@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import Notiflix from 'notiflix';
 import { login, logout, refreshUser, register } from './operations';
 
 const initialState = {
@@ -22,11 +23,17 @@ export const authSlice = createSlice({
         state.token = action.payload.token;
         state.isLoggedIn = true;
       })
-      .addCase(register.rejected, (state, action) => state)
+      .addCase(register.rejected, (state, action) => {
+        Notiflix.Notify.failure('Oops, something went wrong. Please, try again.', { position: 'left-top' });
+      })
+      .addCase(login.pending, (state, action) => state)
       .addCase(login.fulfilled, (state, action) => {
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.isLoggedIn = true;
+      })
+      .addCase(login.rejected, (state, action) => {
+        Notiflix.Notify.failure('incorrect email and/or password. Please, try again.', { position: 'left-top' });
       })
       .addCase(logout.fulfilled, state => {
         state.user = { name: null, email: null };

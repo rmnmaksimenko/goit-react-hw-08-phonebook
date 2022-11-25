@@ -10,7 +10,7 @@ export function LoginPage() {
     e.preventDefault();
     const form = e.currentTarget;
     dispatch(login({ email: form.elements.email.value, password: form.elements.password.value }));
-    form.reset();
+    // form.reset();
   };
 
   return (
@@ -25,7 +25,7 @@ export function LoginPage() {
         <label>
           Password
           <br />
-          <input type="password" name="password" />
+          <input type="password" name="password" pattern=".{7,}" title="Seven or more characters" />
           <br />
         </label>
         <AddContactBtn type="submit">Log in</AddContactBtn>

@@ -16,7 +16,7 @@ export function RegistrationPage() {
         password: form.elements.password.value,
       })
     );
-    form.reset();
+    // form.reset();
   };
 
   return (
@@ -38,7 +38,14 @@ export function RegistrationPage() {
         <label>
           Password
           <br />
-          <input type="password" autoComplete="new-password" name="password" required />
+          <input
+            type="password"
+            autoComplete="new-password"
+            pattern=".{7,}"
+            title="Seven or more characters"
+            name="password"
+            required
+          />
           <br />
         </label>
         <AddContactBtn type="submit">Sign up</AddContactBtn>
