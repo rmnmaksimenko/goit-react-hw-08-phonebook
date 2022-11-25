@@ -16,7 +16,9 @@ export const Navigation = styled.nav`
   position: fixed;
   top: 0px;
   width: 100%;
-  padding: 16px 0px;
+  padding: 0px;
+  padding-top: 16px;
+  height: 40px;
   ${'' /* border-bottom: 1px solid #dedede; */}
   background-color: #222222ea;
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14),
