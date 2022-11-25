@@ -23,15 +23,15 @@ export function RegistrationPage() {
     <Container>
       <Form autoComplete="off" onSubmit={handleSubmit}>
         <label>
-          Username
-          <br />
-          <input type="text" name="name" />
-          <br />
-        </label>
-        <label>
           Email
           <br />
           <input type="email" name="email" />
+          <br />
+        </label>
+        <label>
+          Username
+          <br />
+          <input type="text" name="name" />
           <br />
         </label>
         <label>
