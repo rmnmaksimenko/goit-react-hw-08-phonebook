@@ -6,11 +6,11 @@ export const DeleteBtn = styled.button`
   border-radius: 3px;
   padding: 1px 6px;
   &:hover {
-    background-color: #678;
+    background-color: #ee2414;
     color: #fff;
   }
   &:active {
-    background-color: #456;
+    background-color: #800;
     color: #fff;
   }
 `;
