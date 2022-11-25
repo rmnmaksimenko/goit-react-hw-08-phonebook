@@ -1,3 +1,5 @@
+import { Form } from 'components/contactform/contactform.styled';
+import { Container } from 'components/ContactsPage/app.styled';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
 
@@ -18,23 +20,28 @@ export function RegistrationPage() {
   };
 
   return (
-    <form autoComplete="off" onSubmit={handleSubmit}>
-      <label>
-        <input type="text" name="name" />
-        Username
-        <br />
-      </label>
-      <label>
-        <input type="email" name="email" />
-        Email
-        <br />
-      </label>
-      <label>
-        <input type="password" name="password" />
-        Password
-        <br />
-      </label>
-      <button type="submit">Sign up</button>
-    </form>
+    <Container>
+      <Form autoComplete="off" onSubmit={handleSubmit}>
+        <label>
+          Username
+          <br />
+          <input type="text" name="name" />
+          <br />
+        </label>
+        <label>
+          Email
+          <br />
+          <input type="email" name="email" />
+          <br />
+        </label>
+        <label>
+          Password
+          <br />
+          <input type="password" name="password" />
+          <br />
+        </label>
+        <button type="submit">Sign up</button>
+      </Form>
+    </Container>
   );
 }
