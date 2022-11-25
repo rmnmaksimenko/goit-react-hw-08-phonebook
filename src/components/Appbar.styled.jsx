@@ -10,6 +10,7 @@ export const NavList = styled.ul`
   margin-right: auto;
   margin-top: 0;
   margin-bottom: 0;
+  padding: 0 10px;
 `;
 
 export const Navigation = styled.nav`
