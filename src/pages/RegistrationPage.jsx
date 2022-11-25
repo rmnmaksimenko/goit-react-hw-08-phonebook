@@ -26,19 +26,19 @@ export function RegistrationPage() {
         <label>
           Email
           <br />
-          <input type="email" name="email" />
+          <input type="email" name="email" autoComplete="off" required />
           <br />
         </label>
         <label>
           Username
           <br />
-          <input type="text" name="name" />
+          <input type="text" name="name" autoComplete="off" required />
           <br />
         </label>
         <label>
           Password
           <br />
-          <input type="password" name="password" />
+          <input type="password" autoComplete="new-password" name="password" required />
           <br />
         </label>
         <AddContactBtn type="submit">Sign up</AddContactBtn>
