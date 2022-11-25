@@ -1,4 +1,4 @@
-import { Form } from 'components/contactform/contactform.styled';
+import { AddContactBtn, Form } from 'components/contactform/contactform.styled';
 import { Container } from 'components/ContactsPage/app.styled';
 import { useDispatch } from 'react-redux';
 import { login } from 'redux/auth/operations';
@@ -28,7 +28,7 @@ export function LoginPage() {
           <input type="password" name="password" />
           <br />
         </label>
-        <button type="submit">Log in</button>
+        <AddContactBtn type="submit">Log in</AddContactBtn>
       </Form>
     </Container>
   );

@@ -1,4 +1,4 @@
-import { Form } from 'components/contactform/contactform.styled';
+import { AddContactBtn, Form } from 'components/contactform/contactform.styled';
 import { Container } from 'components/ContactsPage/app.styled';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
@@ -40,7 +40,7 @@ export function RegistrationPage() {
           <input type="password" name="password" />
           <br />
         </label>
-        <button type="submit">Sign up</button>
+        <AddContactBtn type="submit">Sign up</AddContactBtn>
       </Form>
     </Container>
   );
