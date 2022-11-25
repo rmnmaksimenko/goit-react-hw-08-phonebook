@@ -1,5 +1,5 @@
 import { useAuth } from 'hooks/useAuth';
-import { Link, Navigation, NavList } from './Appbar.styled';
+import { Header, Link, Navigation, NavList } from './Appbar.styled';
 import { AuthNav } from './AuthNav/AuthNav';
 import { UserMenu } from './UserMenu/UserMenu';
 
@@ -8,7 +8,7 @@ export const Appbar = () => {
   console.log('isloggedin:', isLoggedIn);
 
   return (
-    <header>
+    <Header>
       <Navigation>
         <NavList>
           <li>
@@ -18,6 +18,6 @@ export const Appbar = () => {
           <li>{isLoggedIn ? <UserMenu /> : <AuthNav />}</li>
         </NavList>
       </Navigation>
-    </header>
+    </Header>
   );
 };
