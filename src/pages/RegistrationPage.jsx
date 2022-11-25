@@ -22,6 +22,7 @@ export function RegistrationPage() {
   return (
     <Container>
       <Form autoComplete="off" onSubmit={handleSubmit}>
+        <input autocomplete="false" name="hidden" type="text" style={{ display: 'none' }}></input>
         <label>
           Email
           <br />
