@@ -18,15 +18,15 @@ export function ContactsPage() {
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
-  const contactsLength = contacts ? contacts.length : 0;
+  const contactsLength = contacts ? contacts.length : null;
   return (
     <Container>
       <h1>Phonebook</h1>
       <ContactForm />
       <div>
-        <Filter />
         {isLoading ? <p>Loading tasks...</p> : isError ? <p>{isError}</p> : <p>Contacts</p>}
-        {!contactsLength ? !isLoading ? !isError ? <p>You have no friends 😥</p> : '' : '' : ''}
+        {contactsLength ? <Filter /> : ''}
+        {!contactsLength ? !isLoading ? !isError ? <p>You have no contacts 😥</p> : '' : '' : ''}
         <ContactList />
       </div>
     </Container>
