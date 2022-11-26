@@ -1,15 +1,15 @@
 import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { deleteContacts } from 'redux/operations';
+import { selectIsLoading } from 'redux/selectContacts';
 import { ListEl, DeleteBtn } from './contactlist.styled';
 function Contact(props) {
   const { name, number, id } = props;
   const dispatch = useDispatch();
-  // const onDelete = id => dispatch(deleteContact(id));
   const onDelete = id => {
-    console.log(id);
     return dispatch(deleteContacts(id));
   };
+  const isLoading = useSelector(selectIsLoading);
 
   return (
     <ListEl>
@@ -18,6 +18,7 @@ function Contact(props) {
       </span>
       <DeleteBtn
         type="button"
+        disabled={isLoading}
         onClick={() => {
           onDelete(id);
         }}
