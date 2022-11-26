@@ -32,7 +32,7 @@ function ContactForm() {
       return;
     }
 
-    console.log(newContact);
+    // console.log(newContact);
     dispatch(addContacts(newContact));
     setName('');
     setNumber('');

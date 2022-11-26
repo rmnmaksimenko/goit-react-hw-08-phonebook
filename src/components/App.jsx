@@ -24,7 +24,7 @@ export function App() {
     dispatch(refreshUser());
   }, [dispatch]);
 
-  console.log('refresh:', isRefreshing);
+  // console.log('refresh:', isRefreshing);
   return isRefreshing ? (
     <p>Fetching user data...</p>
   ) : (

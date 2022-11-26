@@ -5,7 +5,7 @@ import { UserMenu } from './UserMenu/UserMenu';
 
 export const Appbar = () => {
   const { isLoggedIn } = useAuth();
-  console.log('isloggedin:', isLoggedIn);
+  // console.log('isloggedin:', isLoggedIn);
 
   return (
     <Header>
